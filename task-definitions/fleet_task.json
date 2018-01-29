@@ -1,0 +1,60 @@
+[
+  {
+    "environment": [
+      {
+        "name": "KOLIDE_AUTH_JWT_KEY",
+        "value": "${KOLIDE_AUTH_JWT_KEY}"
+      },
+      {
+        "name": "KOLIDE_LOGGING_JSON",
+        "value": "true"
+      },
+      {
+        "name": "KOLIDE_MYSQL_ADDRESS",
+        "value": "${KOLIDE_MYSQL_ADDRESS}"
+      },
+      {
+        "name": "KOLIDE_MYSQL_DATABASE",
+        "value": "${KOLIDE_MYSQL_DATABASE}"
+      },
+      {
+        "name": "KOLIDE_MYSQL_PASSWORD",
+        "value": "${KOLIDE_MYSQL_PASSWORD}"
+      },
+      {
+        "name": "KOLIDE_MYSQL_USERNAME",
+        "value": "${KOLIDE_MYSQL_USERNAME}"
+      },
+      {
+        "name": "KOLIDE_REDIS_ADDRESS",
+        "value": "${KOLIDE_REDIS_ADDRESS}:6379"
+      },
+      {
+        "name": "KOLIDE_SERVER_ADDRESS",
+        "value": "0.0.0.0:8080"
+      },
+      {
+        "name": "KOLIDE_SERVER_TLS",
+        "value": "false"
+      }
+    ],
+    "essential": true,
+    "image": "${image}",
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "/ecs/fleet-server",
+        "awslogs-region": "${aws_region}",
+        "awslogs-stream-prefix": "ecs"
+      }
+    },
+    "name": "fleet-server",
+    "portMappings": [
+      {
+        "hostPort": 8080,
+        "protocol": "tcp",
+        "containerPort": 8080
+      }
+    ]
+  }
+]
