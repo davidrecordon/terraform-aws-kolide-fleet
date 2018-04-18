@@ -20,7 +20,7 @@ module "fleet-service" {
   aws_region = "us-east-1"
   aws_zones  = ["us-east-1a", "us-east-1b"]
 
-  db_password = "p@ssw0rd"
+  db_password = "pa$$w0rd"
   db_subnet_group_name = "${aws_subnet.db_subnet_group_name.name}"
 
   elasticache_subnet_group_name = "${aws_subnet.elasticache_subnet_group_name.name}"
